@@ -1,9 +1,14 @@
 package frontiere;
 
+import java.util.Iterator;
+
+import javax.sql.rowset.spi.SyncResolver;
+
 import controleur.ControlEmmenager;
 
 public class BoundaryEmmenager {
 	private ControlEmmenager controlEmmenager;
+	
 
 	public BoundaryEmmenager(ControlEmmenager controlEmmenager) {
 		this.controlEmmenager = controlEmmenager;
@@ -27,7 +32,12 @@ public class BoundaryEmmenager {
 					break;
 
 				case 2:
-					//TODO a completer
+					System.out.println(
+							"Bienvenue Villageois");
+					StringBuilder question2 = new StringBuilder();
+					question2.append("Quelle est votre force ?\n");
+					int force = Clavier.entrerEntier(question2.toString());
+					controlEmmenager.ajouterGaulois(nomVisiteur,force);
 					break;
 
 				default:
@@ -40,6 +50,28 @@ public class BoundaryEmmenager {
 	}
 
 	private void emmenagerDruide(String nomVisiteur) {
-		//TODO a completer
+		StringBuilder chaine = new StringBuilder();
+		chaine.append("Bienvenue druide ");
+		chaine.append(nomVisiteur +"\n");
+		chaine.append("Quellle est votre force ?\n");
+		int forceDruide = Clavier.entrerEntier(chaine.toString());
+		StringBuilder question1= new StringBuilder();
+		question1.append(
+				"Quelle est la force de potion la plus faible que vous produisez ? \n");
+		StringBuilder question2 = new StringBuilder();
+		question2.append(
+			"Quelle est la force de potion la plus forte que vous produisez ?\n");
+		int effetPotionMin = Clavier.entrerEntier(question1.toString());
+		int effetPotionMax = Clavier.entrerEntier(question2.toString());
+		while (effetPotionMin > effetPotionMax) {
+			System.out.println(
+					"Attention Druide, vous vous êtes trompé entre le minimun et le maximun \n");
+			effetPotionMin = Clavier.entrerEntier(question1.toString());
+			effetPotionMax = Clavier.entrerEntier(question2.toString());
+		}
+		controlEmmenager.ajouterDruide(nomVisiteur, forceDruide, effetPotionMin, effetPotionMax);
+
+		
+		
 	}
 }
