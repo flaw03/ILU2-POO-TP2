@@ -9,6 +9,7 @@ public class BoundaryPrendreEtal {
 	private Scanner scan = new Scanner(System.in);
 
 	public BoundaryPrendreEtal(ControlPrendreEtal controlChercherEtal) {
+
 		this.controlPrendreEtal = controlChercherEtal;
 	}
 
@@ -37,17 +38,13 @@ public class BoundaryPrendreEtal {
 		System.out.println(
 			"Il me faut quelque renseignenments  : \n"
 		);
-		StringBuilder question = new StringBuilder();
-		question.append("Quel Produit souhaitez-vous vendre ?\n");
-		StringBuilder question2 = new StringBuilder();
-		question2.append("Combien souhaitez-vous en vendre ?");
-		System.out.println(question.toString());
+		System.out.println("Quel Produit souhaitez-vous vendre ?\n");
 		String nomProduit = scan.nextLine();
-		int nbProduit = Clavier.entrerEntier(question2.toString());
+		int nbProduit = Clavier.entrerEntier("Combien souhaitez-vous en vendre ?");
 		int numEtal = controlPrendreEtal.prendreEtal(nomVendeur, nomProduit, nbProduit);
 		if (numEtal != -1){
 			System.out.println(
-				"Le vendeur "+ nomVendeur +"s\'est bien installé à l'etal n°"+numEtal+".");
+				"Le vendeur "+ nomVendeur +"s'est bien installé à l'etal n°"+numEtal+".");
 		}
 	}
 }

@@ -8,7 +8,6 @@ public class BoundaryAfficherMarche {
 	public BoundaryAfficherMarche(ControlAfficherMarche controlAfficherMarche) {
 		this.controlAfficherMarche = controlAfficherMarche;
 	}
-
 	public void afficherMarche(String nomAcheteur) {
 
 	}
