@@ -33,7 +33,7 @@ public class BoundaryEmmenager {
 
 				case 2:
 					System.out.println(
-							"Bienvenue Villageois");
+							"Bienvenue Villageois" + nomVisiteur);
 					StringBuilder question2 = new StringBuilder();
 					question2.append("Quelle est votre force ?\n");
 					int force = Clavier.entrerEntier(question2.toString());
@@ -71,7 +71,5 @@ public class BoundaryEmmenager {
 		}
 		controlEmmenager.ajouterDruide(nomVisiteur, forceDruide, effetPotionMin, effetPotionMax);
 
-		
-		
 	}
 }

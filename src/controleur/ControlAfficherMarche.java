@@ -7,6 +7,10 @@ public class ControlAfficherMarche {
 
 	public ControlAfficherMarche(Village village) {
 		this.village = village;
+
+	}
+	public String[] donnerMarcher(){
+		return village.donnerEtatMarche();
 	}
 
 	//TODO a completer
